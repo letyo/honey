@@ -2,7 +2,7 @@
 	include_once "includes/db_connect.php";
 
 //az összes hozzávalót az ingredients táblázatból lementi egy array-ba, az array-t így lehet hívni: array[x]['vmi'], ahol array, az array neve, x az adott sornak a száma, vmi pedig az oszlop neve
-	$query = "SELECT * FROM honey__ingredients ORDER BY id ASC";
+	$query = "SELECT * FROM " . TABLE_NAME_HONEY__INGREDIENTS . " ORDER BY id ASC";
 	$ingredients = array();
 	$result = mysqli_query($conn, $query)  or die ("Error querying database.");
 	while ($row = mysqli_fetch_array($result)) {
@@ -10,7 +10,7 @@
 	}
 
 
-	$stmt = $conn->prepare("SELECT * FROM honey__recipes ORDER BY id ASC");
+	$stmt = $conn->prepare("SELECT * FROM " . TABLE_NAME_HONEY__RECIPES . " ORDER BY id ASC");
 	$stmt->execute();
 	$stmt->bind_result($id, $name, $directions, $image);
 

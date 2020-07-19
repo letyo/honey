@@ -3,7 +3,7 @@
 
 	$q = $_GET['q'];
 
-	$stmt = $conn->prepare("SELECT * FROM honey__products WHERE type LIKE '%$q%' ORDER BY name ASC");
+	$stmt = $conn->prepare("SELECT * FROM " . TABLE_NAME_HONEY__PRODUCTS . " WHERE type LIKE '%$q%' ORDER BY name ASC");
 	$stmt->execute();
 	$stmt->bind_result($name, $type);
 

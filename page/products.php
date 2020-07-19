@@ -21,7 +21,7 @@
 
 <?php
 
-			$stmt = $conn->prepare("SELECT * FROM honey__products ORDER BY name ASC");
+			$stmt = $conn->prepare("SELECT * FROM " . TABLE_NAME_HONEY__PRODUCTS . " ORDER BY name ASC");
 			$stmt->execute();
 			$stmt->bind_result($name, $type);
 
